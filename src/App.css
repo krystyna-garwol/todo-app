@@ -1,38 +1,203 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: #595959;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(45deg, #f28282 0 50%, #6d71e0 50% 100%);
+}
+.container {
+  display: grid;
+  grid-auto-rows: minmax(32rem, auto);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.app-wrapper {
+  background-color: #fefefe;
+  border-radius: 7px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  padding: 30px;
+}
+
+/* App Component */
+.no-tasks-message {
+  margin-top: 5rem;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.no-tasks-message > h3,
+.no-tasks-message > p {
+  color: #a0a0a0;
+  margin-top: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* DateForm Component */
+h1 {
+  color: #6d71e0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#month {
+  margin-top: 0.5rem;
+  color: #737373;
+}
+#date-tasks {
+  color: #737373;
+}
+#date-items {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+/* TaskForm Component */
+.addtask-form {
+  margin: 2rem 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 26rem;
+}
+#addtask-input {
+  padding: 15px;
+  border: 1px solid #b3b3b3;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  width: 18rem;
+}
+#addtask-input:focus {
+  outline: none;
+}
+#btn-add,
+#btn-edit,
+#btn-clear {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 15px;
+}
+#btn-add {
+  background-color: #f28282;
+  margin-right: 0.5rem;
+}
+#btn-edit {
+  background-color: #bbdabb;
+  margin-right: 0.5rem;
+}
+#btn-clear {
+  background-color: #9699e9;
+}
+#btn-add > i,
+#btn-edit > i,
+#btn-clear > i {
+  color: #fefefe;
+}
+.hr {
+  border-bottom: 1px solid #b3b3b3;
+  margin: 1rem 0 1rem 0;
+}
+
+/* Task Component */
+.todo-item,
+.todo-item-edit {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1rem 0 1rem 0;
+}
+.todo-item:hover {
+  cursor: pointer;
+}
+.todo-text {
+  width: 80%;
+}
+.todo-item-edit > input {
+  border: none;
+  font-size: 16px;
+}
+.todo-item-edit > input:focus {
+  outline: none;
+}
+.todo-icons {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.todo-icons > i,
+.btn-edit-task > i {
+  color: #abaded;
+  cursor: pointer;
+}
+.completed {
+  text-decoration: line-through;
+  color: #595959;
+  opacity: 50%;
+}
+.btn-edit-task {
+  border: none;
+  background-color: #fefefe;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*---MEDIA QUERIES---*/
+/*---Mobile---*/
+@media screen and (max-width: 760px) {
+  .app-wrapper {
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  .addtask-form {
+    display: block;
+  }
+  .addtask-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  #addtask-input {
+    margin-right: 0;
+  }
+  .addtask-form {
+    width: auto;
+  }
+}
+@media screen and (max-width: 280px) {
+  h1 {
+    font-size: 24px;
+  }
+  #addtask-input {
+    width: 14rem;
+  }
+}
+@media screen and (min-width: 281px) and (max-width: 320px) {
+  h1 {
+    font-size: 26px;
+  }
+  #addtask-input {
+    width: 16rem;
+  }
+}
+@media screen and (min-width: 321px) and (max-width: 400px) {
+  h1 {
+    font-size: 26px;
+  }
+  #addtask-input {
+    width: 18rem;
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 600px) {
+  h1 {
+    font-size: 26px;
+  }
+  #addtask-input {
+    width: 20rem;
+  }
+}
+/*---Tablet---*/
+@media screen and (min-width: 768px) and (max-width: 1366px) {
+  .addtask-form {
+    width: 30rem;
+  }
+  #addtask-input {
+    width: 22rem;
   }
 }
